@@ -36,24 +36,30 @@ The library contains four different public methods that, given two parents genot
 String genotype1 = "AaBb";
 String genotype2 = "aabb";
 
-// Create a new GeneticCalculator object and feed it your two parents genotypes
-GeneticCalculator gc = new GeneticCalculator(genotype1, genotype2);
+try {
+    // Create a new GeneticCalculator object and feed it your two parents genotypes
+    GeneticCalculator gc = new GeneticCalculator(genotype1,genotype2);
+    
+    // Returns a string array with all the possible alleles combinations of the first parent
+    String[] genotype1Alleles = gc.getGenotype1Alleles();
+    // genotype1Alleles = [AB, Ab, aB, ab]
 
-// Returns a string array with all the possible alleles combinations of the first parent
-String[] genotype1Alleles = gc.getGenotype1Alleles();
-// genotype1Alleles = [AB, Ab, aB, ab]
+    // Returns a string array with all the possible alleles combinations of the second parent
+    String[] genotype2Alleles = gc.getGenotype2Alleles();
+    // genotype2Alleles = [ab, ab, ab, ab]
 
-// Returns a string array with all the possible alleles combinations of the second parent
-String[] genotype2Alleles = gc.getGenotype2Alleles();
-// genotype2Alleles = [ab, ab, ab, ab]
+    // Returns a string array with all the possible genotypes the parent's children can have
+    String[] childrenGenotypes = gc.getChildrenGenotypes();
+    // childrenGenotypes = [AaBb, AaBb, AaBb, AaBb, Aabb, Aabb, Aabb, Aabb, aaBb, aaBb, aaBb, aaBb, aabb, aabb, aabb, aabb]
 
-// Returns a string array with all the possible genotypes the parent's children can have
-String[] childrenGenotypes = gc.getChildrenGenotypes();
-// childrenGenotypes = [AaBb, AaBb, AaBb, AaBb, Aabb, Aabb, Aabb, Aabb, aaBb, aaBb, aaBb, aaBb, aabb, aabb, aabb, aabb]
-
-// Returns a string array with the phenotypes of all the possible genotypes the parent's children can have
-String[] childrenPhenotypes = gc.getChildrenPhenotypes();
-// childrenPhenotypes = [AB, AB, AB, AB, Ab, Ab, Ab, Ab, aB, aB, aB, aB, ab, ab, ab, ab]
+    // Returns a string array with the phenotypes of all the possible genotypes the parent's children can have
+    String[] childrenPhenotypes = gc.getChildrenPhenotypes();
+    // childrenPhenotypes = [AB, AB, AB, AB, Ab, Ab, Ab, Ab, aB, aB, aB, aB, ab, ab, ab, ab]
+    
+} catch (GeneticCalculatorException e) {
+    e.printStackTrace();
+}
+//Don't forget to catch the GeneticCalculatorException, just in case the genotype is invalid! The exception message will also tell you what's wrong with the genotypes!
 
 ```
 
