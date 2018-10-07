@@ -16,7 +16,7 @@ Add JitPack in your **root *build.gradle*** at the end of repositories:
 Add the dependency in your **app *build.gradle***:
  ```gradle
  	dependencies {
-	        implementation 'com.github.rotolonico:Genetic-Calculator:v0.1'
+	        implementation 'com.github.rotolonico:Genetic-Calculator:v0.2'
 	}
  ```
 
